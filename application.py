@@ -80,6 +80,10 @@ def sns():
 
     if hdr == 'Notification':
         print(js['Message'])
+	print(js['MessageAttributes']['Lon']['Value'])
+	print(js['MessageAttributes']['Lat']['Value'])
+	print(js['MessageAttributes']['Id']['Value'])
+	print(js['MessageAttributes']['Sentiment']['Value'])
 
     return 'OK\n'
 

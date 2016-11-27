@@ -15,13 +15,9 @@ topic = sns.Topic('Tweet')
 #print(queue.url)
 #print(queue.attributes.get('DelaySeconds'))
 
-queue.send_message(MessageBody='text', MessageAttributes={
+queue.send_message(MessageBody='text23', MessageAttributes={
     'Lon': {
-        'StringValue': 'longtitude',
-        'DataType': 'String'
-    },
-    'Lat': {
-        'StringValue': 'latitude',
+        'StringValue': 'longtitude23',
         'DataType': 'String'
     }
 })
