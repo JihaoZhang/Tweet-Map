@@ -9,12 +9,13 @@ from tweepy.streaming import StreamListener
 import pprint
 import numpy as np
 import elasticsearch
+import boto3
 
 pp = pprint.PrettyPrinter(indent=4)
 es = elasticsearch.Elasticsearch()
 
-if es.indices.exists('t'):
-    es.indices.delete('t')
+#if es.indices.exists('t'):
+#    es.indices.delete('t')
 mapping = '''
 {
       "mappings": {
@@ -35,6 +36,11 @@ ACCESS_TOKEN = '3837655757-UJd7ZXp2LbLRlyjWVLGXmZNlCRh9c9dIEniikEf'
 ACCESS_SECRET = 'NMHUbHMKWK5E5Cjzl3KpjGpn013zaJoOJpYD1DXFwVMI8'
 CONSUMER_KEY = 'o3AmLlX5kiQaiIDdSTaqwUEt7'
 CONSUMER_SECRET = 'xOO0Lf2IQgeH4ez5MeDU7TZ6UNk49BoLu8a9PBk4jt50YzMrPZ'
+
+#sqs = boto3.resource('sqs')
+#queue = sqs.get_queue_by_name(QueueName='Tweet')
+
+
 
 class listener(StreamListener):
     def __init__(self):

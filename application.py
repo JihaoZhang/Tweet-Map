@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, abort, url_for
 from flask import request
 from elasticsearch import Elasticsearch, exceptions
 import json
+import requests
 
 application = Flask(__name__)
 
@@ -63,5 +64,31 @@ def hello(name=None):
 def page_not_found(error):
     return 'Oh. Nothing is here.'
 
+@application.route('/sns', methods = ['GET', 'POST', 'PUT'])
+def sns():
+    # AWS sends JSON with text/plain mimetype
+    try:
+        js = json.loads(request.data)
+    except:
+        pass
+
+    hdr = request.headers.get('x-amz-sns-message-type')
+    print (hdr)
+    # subscribe to the SNS topic
+    if hdr == 'SubscriptionConfirmation' and 'SubscribeURL' in js:
+        r = requests.get(js['SubscribeURL'])
+
+    if hdr == 'Notification':
+        print(js['Message'])
+
+    return 'OK\n'
+
+
+
+
+
+
+
 if __name__ == '__main__':
-    application.run(host='0.0.0.0', port=8080, debug=True)
+    application.run(host='0.0.0.0', port=80, debug=True)
+
