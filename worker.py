@@ -64,7 +64,7 @@ while(1):
            print ID
            senti = alchemy_language.sentiment(text=message.body,language='english')["docSentiment"]["type"]
            d = { 'text': txt,"location" : {"lat" : lat,"lon" : lon},"sentiment":senti}
-           #es.index(index='t',doc_type='tweet',id=int(ID),body=d)
+           es.index(index='t',doc_type='tweet',id=int(ID),body=d)
            topic.publish(
                TopicArn = 'arn:aws:sns:us-east-1:842671666367:Tweet',
                Message=txt,

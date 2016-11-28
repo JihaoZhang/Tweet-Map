@@ -2,6 +2,8 @@
   <meta charset="utf-8">
   <title>Twitter Map</title>
   <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
   <style>
     body {
       margin:0; padding:0;
@@ -69,7 +71,7 @@
         // for (var i = 0; i < numbers_received.length; i++){
         // numbers_string = numbers_string + '<p>' + numbers_received[i].toString() + '</p>';
         // }
-        $('#log').html(numbers_string);
+        //$('#log').html(numbers_string);
     });
 });
 var map; function initMap() {

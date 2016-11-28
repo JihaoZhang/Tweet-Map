@@ -86,7 +86,8 @@ def sns():
     	    txt = (js['Message'])
             lon = (js['MessageAttributes']['Lon']['Value'])
     	    lat = (js['MessageAttributes']['Lat']['Value'])
-    	    print(js['MessageAttributes']['Id']['Value'])
+    	    print ('EMIT')
+	    print(js['MessageAttributes']['Id']['Value'])
     	    senti = (js['MessageAttributes']['Sentiment']['Value'])
 	    socketio.emit('tweet',{'lon':lon,'lat':lat,'text':txt,'senti':senti},namespace='/realtime')
 	
