@@ -15,8 +15,8 @@ import multiprocessing
 
 
 session = boto3.Session(
-    aws_access_key_id='AKIAJ5IZKUVUKBGNQC5Q',
-    aws_secret_access_key='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'
+    aws_access_key_id='key',
+    aws_secret_access_key='id'
 )
 
 es = elasticsearch.Elasticsearch()
